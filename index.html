@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>镇江佰智 - 专业的供应链金融科技服务商</title>
+    <meta name="description" content="永顺县弘浚网络科技有限公司致力于通过科技手段优化供应链金融服务，为中小企业提供高效、便捷的融资解决方案。">
+    <style>
+        :root {
+            --primary-color: #0f4c81; /* 经典蓝 */
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-bg: #f8f9fa;
+            --text-color: #333;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* Header & Nav */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .logo svg {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-contact {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .btn-contact:hover {
+            background-color: #0a355c;
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            height: 600px;
+            background: linear-gradient(rgba(15, 76, 129, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn-hero {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            border-radius: 5px;
+            font-size: 18px;
+            transition: transform 0.3s;
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 10px auto 0;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Us */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .stat-item h4 {
+            font-size: 32px;
+            color: var(--primary-color);
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Services */
+        .bg-light {
+            background-color: var(--light-bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .feature-item {
+            padding: 20px;
+        }
+
+        .feature-icon-circle {
+            width: 80px;
+            height: 80px;
+            background: rgba(15, 76, 129, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary-color);
+            font-size: 30px;
+        }
+
+        /* Contact */
+        .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .contact-info {
+            flex: 1;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 50px;
+            border-radius: 8px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+
+        .info-item {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .info-item span {
+            margin-right: 15px;
+            font-size: 20px;
+        }
+
+        .contact-form {
+            flex: 1.5;
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .btn-submit {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a252f;
+            color: #bdc3c7;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #34495e;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 32px; }
+            .about-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr 1fr; }
+            .contact-wrapper { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo">
+                <!-- SVG Logo: 抽象的H形状，代表连接与金融 -->
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="10" width="20" height="80" rx="5" fill="#0f4c81"/>
+                    <rect x="70" y="10" width="20" height="80" rx="5" fill="#0f4c81"/>
+                    <path d="M30 50H70" stroke="#e74c3c" stroke-width="15" stroke-linecap="round"/>
+                    <circle cx="50" cy="50" r="15" fill="#ffffff" stroke="#0f4c81" stroke-width="5"/>
+                </svg>
+                镇江佰智
+            </a>
+            <nav class="nav-links">
+                <a href="#home">首页</a>
+                <a href="#about">关于我们</a>
+                <a href="#services">解决方案</a>
+                <a href="#features">核心优势</a>
+                <a href="#contact">联系我们</a>
+            </nav>
+            <a href="#contact" class="btn-contact">业务咨询</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>赋能供应链，智造新金融</h1>
+            <p>镇江佰智致力于通过科技创新，为产业链上下游企业提供高效、透明、安全的供应链金融服务，助力实体经济腾飞。</p>
+            <a href="#services" class="btn-hero">探索我们的服务</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+        <div class="section-title">
+            <h2>关于镇江佰智</h2>
+            <p>服务全国，做最懂产业的金融科技服务商</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>科技驱动金融，信用创造价值</h3>
+                <p>镇江佰智网络科技有限公司（简称“镇江佰智”）成立于江苏省镇江。作为一家新兴的供应链金融科技企业，我们依托先进的大数据风控模型和区块链技术，致力于解决中小微企业融资难、融资贵的问题。</p>
+                <p>我们深入产业场景，将核心企业的信用穿透至多级供应商，实现资金流、信息流、物流、商流的“四流合一”，为企业提供定制化的供应链金融解决方案。</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h4>100+</h4>
+                        <p>合作企业</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>5亿+</h4>
+                        <p>撮合资金</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>24h</h4>
+                        <p>极速放款</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="商务会议">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>核心解决方案</h2>
+                <p>全方位覆盖企业经营周期的资金需求</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>应收账款融资</h3>
+                    <p>基于供应商对核心企业的应收账款，提供无抵押的保理融资服务，盘活企业沉淀资产，加速资金回笼。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏭</div>
+                    <h3>预付款融资</h3>
+                    <p>针对下游经销商采购环节，提供定向支付的预付款融资支持，帮助企业扩大采购规模，锁定价格优势。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📦</div>
+                    <h3>存货质押融资</h3>
+                    <p>利用物联网技术监控库存，将企业库存商品转化为流动资金，解决季节性备货资金压力。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔗</div>
+                    <h3>区块链票据</h3>
+                    <p>基于区块链技术的电子债权凭证，可拆分、可流转、可融资，实现核心企业信用多级穿透。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="container">
+        <div class="section-title">
+            <h2>我们的优势</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon-circle">⚡</div>
+                <h3>高效便捷</h3>
+                <p>全流程线上操作，系统自动审批，最快当天放款。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon-circle">🛡️</div>
+                <h3>风控严密</h3>
+                <p>大数据+AI风控模型，实时监控交易风险，保障资金安全。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon-circle">💰</div>
+                <h3>成本更低</h3>
+                <p>对接多家银行及资金方，为企业匹配最优资金成本。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon-circle">🤝</div>
+                <h3>专业服务</h3>
+                <p>资深金融专家团队，提供一对一的融资顾问服务。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>联系我们</h2>
+                <p>期待与您携手共创未来</p>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>镇江佰智网络科技有限公司</h3>
+                    <div class="info-item">
+                        <span>📍</span>
+                        <p>镇江市润州区中山西路润居商务中心601</p>
+                    </div>
+                    <div class="info-item">
+                        <span>📧</span>
+                        <p>dev@zhenjiangbaizhi.asia</p>
+                    </div>
+                    <div class="info-item">
+                        <span>📞</span>
+                        <p>19947053940</p>
+                    </div>
+                    <div class="info-item">
+                        <span>🕒</span>
+                        <p>周一至周五 9:00 - 18:00</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="您的姓名" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="联系电话" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="公司名称">
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="5" placeholder="请输入您的融资需求或留言" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">提交申请</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>镇江佰智</h4>
+                    <p>专注供应链金融科技，服务实体经济。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#about">关于我们</a></li>
+                        <li><a href="#services">解决方案</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>业务范围</h4>
+                    <ul>
+                        <li>应收账款融资</li>
+                        <li>预付款融资</li>
+                        <li>存货质押</li>
+                        <li>企业信用贷</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 镇江佰智网络科技有限公司 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
